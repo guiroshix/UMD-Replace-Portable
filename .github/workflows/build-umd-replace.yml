@@ -15,6 +15,10 @@ jobs:
         run: |
           sudo apt-get update && sudo apt-get install -y mingw-w64
           x86_64-w64-mingw32-gcc src/main.c -o umd-replace-win64.exe -O3
+
+      - name: Compile for Windows 32-bit (win32)
+        run: |
+          i686-w64-mingw32-gcc src/main.c -o umd-replace-win32.exe -O3
           
       - name: Upload x86 Artifacts
         uses: actions/upload-artifact@v4
@@ -23,6 +27,7 @@ jobs:
           path: |
             umd-replace-linux-x86_64
             umd-replace-win64.exe
+            umd-replace-win32.exe
 
   build-arm:
     runs-on: ubuntu-24.04-arm
