@@ -9,12 +9,12 @@ jobs:
       - uses: actions/checkout@v4
       
       - name: Compile for Linux x86_64
-        run: gcc umd-replace.c -o umd-replace-linux-x86_64 -O3
+        run: gcc src/main.c -o umd-replace-linux-x86_64 -O3
         
       - name: Compile for Windows x86_64
         run: |
           sudo apt-get update && sudo apt-get install -y mingw-w64
-          x86_64-w64-mingw32-gcc umd-replace.c -o umd-replace-win64.exe -O3
+          x86_64-w64-mingw32-gcc src/main.c -o umd-replace-win64.exe -O3
           
       - name: Upload x86 Artifacts
         uses: actions/upload-artifact@v4
@@ -30,7 +30,7 @@ jobs:
       - uses: actions/checkout@v4
       
       - name: Compile for Linux ARM64 (Native)
-        run: gcc umd-replace.c -o umd-replace-linux-arm64 -O3
+        run: gcc src/main.c -o umd-replace-linux-arm64 -O3
         
       - name: Upload ARM Artifacts
         uses: actions/upload-artifact@v4
