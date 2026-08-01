@@ -91,7 +91,7 @@ int main(int argc, char **argv) {
 void Title(void) {
   printf(
     "\n"
-    "UMD-REPLACE version %s - Copyright (C) 2012-2015 CUE\n"
+    "UMD-Replace Portable version %s - Copyright (C) 2012-2015 CUE | Compiled by Guiroshix / BomberME\n"
     "Tiny tool to replace data files in a PSP UMD ISO\n"
     "\n",
     VERSION
