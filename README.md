@@ -4,7 +4,7 @@
 - Modified project by Guiroshix | BomberME
 
 # What are the differences?
-- You can run it on pretty much anything that has a terminal, Windows, Linux, Android.
+- You can run it on pretty much anything that has a terminal, Windows, Linux, ~~Android~~.
 
 # How does it work?
 - The syntax is `UMD-REPLACE imagename filename newfile`
