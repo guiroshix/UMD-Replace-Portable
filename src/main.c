@@ -21,6 +21,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#ifdef __ANDROID__
+#define fseeko64 fseeko
+#define ftello64 ftello
+#endif
+
+
 /*----------------------------------------------------------------------------*/
 typedef unsigned long long U64;
 
