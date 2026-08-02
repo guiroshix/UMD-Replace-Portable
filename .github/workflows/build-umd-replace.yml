@@ -1,41 +1,3 @@
-name: Build UMD-Replace All
-
-on:
-  workflow_dispatch
-
-jobs:
-  build-x86:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Install MinGW
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y mingw-w64
-
-      - name: Compile Linux x86_64
-        run: |
-          gcc src/main.c -O3 -o umd-replace-linux-x86_64
-
-      - name: Compile Windows x64
-        run: |
-          x86_64-w64-mingw32-gcc src/main.c -O3 -o umd-replace-win64.exe
-
-      - name: Compile Windows x86
-        run: |
-          i686-w64-mingw32-gcc src/main.c -O3 -o umd-replace-win32.exe
-
-      - name: Upload x86 Artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: binaries-x86
-          path: |
-            umd-replace-linux-x86_64
-            umd-replace-win64.exe
-            umd-replace-win32.exe
-
   build-arm:
     runs-on: ubuntu-latest
 
@@ -51,11 +13,12 @@ jobs:
         run: |
           gcc src/main.c -O3 -o umd-replace-linux-arm64
 
-      - name: Compile Android ARM64
-        env:
-          CC: ${{ env.ANDROID_NDK_HOME }}/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android21-clang
+      - name: Compile for Android ARM64
         run: |
-          $CC src/main.c -O3 -o umd-replace-android-arm64
+          $ANDROID_NDK_LATEST_HOME/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android21-clang \
+            src/main.c \
+            -O3 \
+            -o umd-replace-android-arm64
 
       - name: Upload ARM Artifacts
         uses: actions/upload-artifact@v4
