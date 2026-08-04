@@ -17,7 +17,7 @@ jobs:
 
       - name: Compile Linux x86_64
         run: |
-          gcc src/main.c -g umd-replace-linux-x86_64
+          gcc src/main.c -03 -g umd-replace-linux-x86_64
 
       - name: Compile Windows x64
         run: |
