@@ -1,7 +1,7 @@
 # UMD-Replace but compiled into more than one executable file.
 
 - Original Project by CUE, 2015.
-- Modified project by Guiroshix | BomberME
+- "Modified" project by Guiroshix | BomberME
 
 # What are the differences?
 - You can run it on pretty much anything that has a terminal, Windows, Linux, ~~Android~~ < (Couldn't get it working).
